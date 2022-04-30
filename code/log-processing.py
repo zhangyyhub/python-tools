@@ -5,10 +5,10 @@ from logging.handlers import RotatingFileHandler, TimedRotatingFileHandler
 class logProcess:
     def __init__(self, logfile:str, when:str='D', interval:int=1, backupCount:int=30) -> None:
         """Initial configuration logging."""
-        self.logfile     = logfile
-        self.when        = when
-        self.interval    = interval
-        self.backupCount = backupCount
+        self.logfile     = logfile      # log file absolute path.
+        self.when        = when         # cut in seconds, minute, hour, days.
+        self.interval    = interval     # interval number.
+        self.backupCount = backupCount  # backup number.
 
         logger_format = logging.Formatter("%(asctime)s[%(levelname)s] %(filename)s %(message)s", "%Y-%m-%d %H:%M:%S")
     
@@ -31,8 +31,7 @@ class logProcess:
 
 mylog = logProcess('/Users/zhang/datum/github/python-tools/logs/test.log')
 
+# # test
 # for _ in range(20):
 #     mylog.logger.info("这是一个info信息")
 #     time.sleep(1)
-
-
